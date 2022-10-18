@@ -23,7 +23,7 @@ RSpec.describe BankAccount, type: :model do
     end
 
     it 'iban should not exceed 34 characters ' do
-      bank_account.iban = 'a' * 34
+      bank_account.iban = 'a' * 35
       expect(bank_account).to_not be_valid
     end
 
