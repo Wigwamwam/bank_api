@@ -1,9 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require_relative 'support/factory_bot'
-require_relative 'support/api_helpers'
+require_relative 'support/api_helper'
 require_relative 'support/database_cleaner_spec'
-
+require_relative 'support/serializer_spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -42,6 +42,10 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
+
+  config.include SerializerSpecHelper, type: :serializer
+
+  config.include ApiHelper, type: :api
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
