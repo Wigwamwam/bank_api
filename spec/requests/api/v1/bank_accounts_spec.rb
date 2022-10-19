@@ -50,7 +50,8 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
-
+  end
+end
     # context 'when resource is found' do
     #   it 'responds with 200'
     #   it 'shows the resource'
@@ -63,5 +64,4 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     # context 'when resource is not owned' do
     #   it 'responds with 404'
     # end
-  end
-end
+

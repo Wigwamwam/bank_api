@@ -23,6 +23,9 @@ gem 'rubocop-rails', require: false
 
 gem 'rubocop-rspec', require: false
 
+gem 'active_model_serializers'
+
+
 # for testing
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
