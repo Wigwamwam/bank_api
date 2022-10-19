@@ -44,6 +44,6 @@ RSpec.describe BankAccount, type: :model do
       bank_account.currency = "Dollars"
       expect(bank_account).to_not be_valid
     end
-  end
 
+  end
 end
