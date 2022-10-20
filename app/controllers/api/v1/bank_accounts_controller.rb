@@ -9,9 +9,8 @@ class Api::V1::BankAccountsController < ApplicationController
     @bank_account = BankAccount.create(bank_account_params)
     if @bank_account.save
       render json: @bank_account, status: :created
-    # https://blog.rebased.pl/2016/11/07/api-error-handling.html
     else
-      render json: { :errors => [field: @bank_account.errors]  }
+      render json: { :errors => error_message(@bank_account.errors.as_json) }, status: :bad_request
     end
   end
 
@@ -27,7 +26,11 @@ class Api::V1::BankAccountsController < ApplicationController
     params.permit(:name, :iban, :currency)
   end
 
-  # def json_response(object, status = :ok)
-  #   render json: object, status: status
-  # end
+  # need to place this inside the lib, however this is not flexible for different errros, I need to create a error folder, where depending on the error it displaces different responses
+  def error_message(errors)
+    errors.map do |key, value|
+      { "field" => key.to_s, "error" => value.first }
+    end
+  end
+  
 end
