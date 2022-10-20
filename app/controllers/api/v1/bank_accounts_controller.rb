@@ -1,4 +1,5 @@
 class Api::V1::BankAccountsController < ApplicationController
+
   def index
     @bank_accounts = BankAccount.all
     render json: @bank_accounts
@@ -8,8 +9,9 @@ class Api::V1::BankAccountsController < ApplicationController
     @bank_account = BankAccount.create(bank_account_params)
     if @bank_account.save
       render json: @bank_account, status: :created
+    # https://blog.rebased.pl/2016/11/07/api-error-handling.html
     else
-      render_error
+      render json: { :errors => [field: @bank_account.errors]  }
     end
   end
 

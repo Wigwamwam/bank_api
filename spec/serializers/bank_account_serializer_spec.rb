@@ -10,24 +10,18 @@ RSpec.describe BankAccountSerializer, type: :serializer do
 
   it { expect(json).to include(:name, :iban, :currency)}
 
-  it "has types" do
-    expect(json[:name]).to be_kind_of(String)
-    expect(json[:iban]).to be_kind_of(String)
-    expect(json[:currency]).to be_kind_of(String)
-  end
-
-  it "has values" do
+  it "has associated values" do
     expect(json[:name]).to eq(bank_account.name)
     expect(json[:iban]).to eq(bank_account.iban)
     expect(json[:currency]).to eq(bank_account.currency)
   end
 
 
-    # it 'returns correct keys and values' do
-    #   expect(subject).to include (
-    #     name: be_a(String);
-    #     iban: be_a(String);
-    #     currency: be_a(String)
-    #   )
-    # end
+  # it 'returns correct keys and values' do
+  #   expect(subject).to include (
+  #     name: be_a(String);
+  #     iban: be_a(String);
+  #     currency: be_a(String)
+  #   )
+  # end
 end
