@@ -35,8 +35,10 @@ group :development, :test do
   gem "faker"
 end
 
+
 group :test do
   gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 # Use Redis adapter to run Action Cable in production

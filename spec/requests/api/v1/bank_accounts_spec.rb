@@ -11,53 +11,43 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
 
     before { get '/api/v1/bank_accounts' }
 
-    it 'returns all bank accounts' do
+    it 'returns bank accounts' do
+      expect(json).not_to be_empty
       expect(json.size).to eq(5)
     end
 
-    it 'returns status code 200' do
-      expect(response.status).to eq(200)
-    end
+    it { expect(response).to have_http_status(200) }
   end
 
   describe 'POST / create' do
-    before do
-      post '/api/v1/bank_accounts', params: { :name => 'Test Bank Account', :iban => 'RO66BACX0000001234567890', :currency => 'USD' }
-    end
+    let (:valid_attributes)  { { name: 'Test Bank Account', iban:  'RO66BACX0000001234567890', currency: 'USD' } }
 
-    it 'returns the bank account - name' do
-      expect(json['name']).to eq('Test Bank Account')
-    end
+    context 'when request is valid' do
+      before { post '/api/v1/bank_accounts', params: valid_attributes}
 
-    it 'returns the bank account - iban' do
-      expect(json['iban']).to eq('RO66BACX0000001234567890')
-    end
-
-    it 'returns the bank account - currency' do
-      expect(json['currency']).to eq('USD')
-    end
-
-    it 'returns status code 201' do
-      expect(response).to have_http_status(:created)
-    end
-
-    describe 'Error message - Invalid request' do
-      before do
-        post '/api/v1/bank_accounts', params: { :name => 'Test Bank Account', :iban => 'RO66BACX00000012345678', :currency => 'cccc' }
+      it 'creates a bank account' do
+        expect(json["name"]).to eq('Test Bank Account')
+        expect(json['iban']).to eq('RO66BACX0000001234567890')
+        expect(json['currency']).to eq('USD')
       end
 
-      it 'returns status code 400 - invalid request' do
-        expect(response).to have_http_status(:bad_request)
-      end
+      it { expect(response).to have_http_status(201) }
+    end
 
-      it 'returns json format error message' do
-        expect(json).to eq(
-          {
-            "errors"=>[{"error"=>"cccc is not a valid currency, please either input USD, GBP, EUR", "field"=>"currency"}]
-          }
-          )
-      end
+    context 'when request is invalid' do
+        before { post '/api/v1/bank_accounts', params: { :name => 'Test Bank Account', :iban => 'RO66BACX00000012345678', :currency => 'cccc' } }
 
+        it 'returns status code 400' do
+          expect(response).to have_http_status(:bad_request)
+        end
+
+        it 'returns json format error message' do
+          expect(json).to eq(
+            {
+              "errors"=>[{"error"=>"is not included in the list", "field"=>"currency"}]
+            }
+            )
+        end
       # need to create the 500 message, coz currently what type of request would call a 500
     end
 
@@ -77,8 +67,9 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     #   before { delete '/api/v1/bank_accounts/300' }
 
     #   it 'returns status code 404' do
-    #     expect(response).to have_http_status(:not_found)
+    #     expect(response).to have_http_status(404)
     #   end
+
     # end
   end
 end
