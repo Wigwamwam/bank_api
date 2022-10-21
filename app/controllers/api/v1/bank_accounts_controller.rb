@@ -10,7 +10,9 @@ class Api::V1::BankAccountsController < ApplicationController
     if @bank_account.save
       render json: @bank_account, status: :created
     else
-      render json: { :errors => error_message(@bank_account.errors.as_json) }, status: :bad_request
+      render_error
+    # # else
+    # #   render json: { :errors => error_message(@bank_account.errors.as_json) }, status: :bad_request
     end
   end
 
@@ -27,10 +29,17 @@ class Api::V1::BankAccountsController < ApplicationController
   end
 
   # need to place this inside the lib, however this is not flexible for different errros, I need to create a error folder, where depending on the error it displaces different responses
+
+
+  def render_error
+    render json: { errors: error_message(@bank_account.errors.as_json) },
+      status: :bad_request
+  end
+
   def error_message(errors)
     errors.map do |key, value|
       { "field" => key.to_s, "error" => value.first }
     end
   end
-  
+
 end
