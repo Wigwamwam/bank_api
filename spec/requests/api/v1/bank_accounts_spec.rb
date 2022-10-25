@@ -67,20 +67,8 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
       before { delete '/api/v1/bank_accounts/300' }
 
       it 'returns status code 404' do
-        expect(response).to have_http_status(404)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
 end
-    # context 'when resource is found' do
-    #   it 'responds with 200'
-    #   it 'shows the resource'
-    # end
-
-    # context 'when resource is not found' do
-    #   it 'responds with 404'
-    # end
-
-    # context 'when resource is not owned' do
-    #   it 'responds with 404'
-    # end

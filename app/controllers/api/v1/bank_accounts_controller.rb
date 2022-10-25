@@ -20,7 +20,7 @@ class Api::V1::BankAccountsController < ApplicationController
     if @bank_account.destroy
       head :no_content
     else
-      render  json: { errors: "error"}, status: :not_found
+      head :not_found
     end
   end
 

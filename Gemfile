@@ -41,6 +41,8 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
 end
 
+gem 'simplecov', require: false, group: :test
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

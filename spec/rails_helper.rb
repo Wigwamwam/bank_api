@@ -1,9 +1,12 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start
 require 'spec_helper'
 require_relative 'support/factory_bot'
 require_relative 'support/api_helper'
 require_relative 'support/database_cleaner_spec'
 require_relative 'support/serializer_spec_helper'
+
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'

@@ -1,3 +1,5 @@
+
+# :nocov:
 RSpec.configure do |config|
 
   config.before(:suite) do
@@ -20,3 +22,4 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+# :nocov:
