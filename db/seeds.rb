@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -13,8 +14,8 @@ BankAccount.destroy_all
 
 10.times do
   BankAccount.create(
-    name: "Test: #{ Faker::Name.name }",
+    name: "Test: #{Faker::Name.name}",
     iban: Faker::Bank.iban,
-    currency: ['USD', 'GBP', 'EUR'].sample
+    currency: %w[USD GBP EUR].sample
   )
 end
