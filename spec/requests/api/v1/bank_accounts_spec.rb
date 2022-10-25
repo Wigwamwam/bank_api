@@ -72,11 +72,13 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
         expect(response).to have_http_status(:not_found)
       end
     end
-  end
 
-  context 'Status 500 - an invalid connection' do
-    it 'should return an error message in error array' do
-      stub_request(:any, "http://www.localhost:3000/").to_return(:status => [500, "Internal Server Error"])
+  end
+  # this is not working
+  describe 'Stub request return standard error' do
+    before { expect(BankAccount).to receive(:all).and_raise(StandardError.new('error')) }
+    it 'returns status code 500' do
+      expect(response).to have_http_status(500)
     end
   end
 end
