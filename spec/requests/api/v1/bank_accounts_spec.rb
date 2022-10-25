@@ -63,14 +63,13 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
       expect(response).to have_http_status(204)
     end
 
-    # describe "Error message - 404 - could not find ID" do
-    #   before { delete '/api/v1/bank_accounts/300' }
+    describe "Error message - 404 - could not find ID" do
+      before { delete '/api/v1/bank_accounts/300' }
 
-    #   it 'returns status code 404' do
-    #     expect(response).to have_http_status(404)
-    #   end
-
-    # end
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+    end
   end
 end
     # context 'when resource is found' do

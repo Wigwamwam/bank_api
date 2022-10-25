@@ -1,5 +1,7 @@
 class Api::V1::BankAccountsController < ApplicationController
 
+  before_action :bank_account, only: [:destroy]
+
   def index
     @bank_accounts = BankAccount.all
     render json: @bank_accounts
@@ -11,15 +13,15 @@ class Api::V1::BankAccountsController < ApplicationController
       render json: @bank_account, status: :created
     else
       render_error
-    # # else
-    # #   render json: { :errors => error_message(@bank_account.errors.as_json) }, status: :bad_request
     end
   end
 
   def destroy
-    @bank_account = BankAccount.find(params[:id])
-    @bank_account.destroy
-    head :no_content
+    if @bank_account.destroy
+      head :no_content
+    else
+      render  json: { errors: "error"}, status: :not_found
+    end
   end
 
   private
@@ -42,4 +44,9 @@ class Api::V1::BankAccountsController < ApplicationController
     end
   end
 
+  def bank_account
+    @bank_account = BankAccount.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => error
+      render  json: { errors: error }, status: :not_found
+  end
 end
