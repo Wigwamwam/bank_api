@@ -32,7 +32,8 @@ class Api::V1::BankAccountsController < ApplicationController
   # need to place this inside the lib, however this is not flexible for different errros, I need to create a error folder, where depending on the error it displaces different responses
 
   def render_error
-    render json: { errors: error_message(@bank_account.errors.as_json) }, status: :bad_request
+    render json: { errors: error_message(@bank_account.errors.as_json) },
+      status: :bad_request
   end
 
   def error_message(errors)
