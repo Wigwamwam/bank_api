@@ -76,9 +76,12 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
   end
   # this is not working
   describe 'Stub request return standard error' do
-    before { expect(BankAccount).to receive(:all).and_raise(StandardError.new('error')) }
+
     it 'returns status code 500' do
+      allow(BankAccount).to receive(:all).and_raise(StandardError.new("error"))
+      delete '/api/v1/bank_accounts/400'
       expect(response).to have_http_status(500)
     end
   end
+
 end
