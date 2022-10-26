@@ -7,8 +7,9 @@ def json
 end
 
 RSpec.describe 'Api::V1::BankAccounts', type: :request do
+  let!(:bank_account) { create(:bank_account) }
   describe 'GET / index' do
-    let!(:bank_accounts) { create_list(:bank_account, 5) }
+    let!(:bank_accounts) { create_list(:bank_account, 4) }
 
     before { get '/api/v1/bank_accounts' }
 
@@ -57,7 +58,6 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    let!(:bank_account) { create(:bank_account) }
 
     before { delete "/api/v1/bank_accounts/#{bank_account.id}" }
 
@@ -72,16 +72,14 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
         expect(response).to have_http_status(:not_found)
       end
     end
-
   end
+
   # this is not working
   describe 'Stub request return standard error' do
-
     it 'returns status code 500' do
-      allow(BankAccount).to receive(:all).and_raise(StandardError.new("error"))
-      delete '/api/v1/bank_accounts/400'
-      expect(response).to have_http_status(500)
+      BankAccount.any_instance.stubs(:destroy).raises('some error')
+      delete "/api/v1/bank_accounts/#{bank_account.id}"
+      expect(response).to have_http_status(:internal_server_error)
     end
   end
-
 end

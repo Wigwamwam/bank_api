@@ -34,6 +34,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem "webmock"
+  gem 'mocha'
 end
 
 group :test do
