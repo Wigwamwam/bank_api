@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  Excludes:
+  Exclude:
     - bin/bundle
     - application.rb
   SuggestExtensions: false

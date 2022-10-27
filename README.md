@@ -1,18 +1,18 @@
 ## Description
 
-The follow repo  is a dummy repo that has has 1 model, the Bank_Account model. A bank account object has the following attributes:
+The follow repo was built to test my TDD and API skills. It contains one model, bank_account. A bank account object has the following attributes:
 
 * id: unique id of the bank account (no requirements on type or length)
 * name: name of the bank account (free text, up to 100 characters)
 * iban: accounts iban (up to 34 characters, only letters and numbers)
 * currency: accounts' currency (the only supported currencies are GBP, EUR and USD)
 
-The aim of the excerise was to generate Rest API end points that enables users to create, index and delete bank accounts. The objective of the excerise was to:
+The aim of the excerise was to generate Rest API end points that enables users to create, index and delete bank accounts. Learnings included:
 
-1. Follow a TDD approach to developing rest APIs
+1. Adopt a TDD approach to developing Rest-APIs
 2. Serialize API endpoints
 3. Test APIs with Postman
-4. Handle edge error messages
+4. Handle edge case errors
 
 ## Requirements
 
@@ -21,7 +21,7 @@ This repo currently works with:
 * Rails 7.0.4
 * Ruby 3.1.2
 * Bundler 2.2.32
-* PostgreSQL
+* Database: PostgreSQL - In the possibility of scaling, Postgres offers a wider variety of data types compared with MySQL. PostgresSQL has less limitations in the eventiality of building out a bank system. Compared with MySQL, Postgres, can handle unique data types, unstructured data, complex queries and frequent write operations making it a good choice for enterprise level scope.
 
 ## Set-Up
 
@@ -32,20 +32,22 @@ This repo currently works with:
 
 ## Testing
 <!-- Outline justfication for Rspec -->
-For testing we used Rspec. We followed a TDD. Rspec was chosen over minitest because of its ability to act as you were to read it. To run the tests:
+The repo followed a TDD approach. For testing we used Rspec. Rspec was chosen over minitest becauses it focuses on readable specifications describing how the application is supposed to behave with a close match to English. To run the tests:
+
 `bundle exec rspec`
 or
 `rspec`
+<!-- insert pic of tests passing -->
 
-We used the `gem simplecov` in order to ensure test coverage was >98%. To run simplecov, conduct the following after run rspec:
+We used the `gem simplecov` in order to ensure test coverage was >98%. To run simplecov, conduct the following after running rspec:
 `open coverage/index.html`
-<!-- insert test coverage picture -->
 
-## Database
-<!-- Outline justfication for PostgresSQL -->
+<!-- insert test coverage picture -->
 
 ## Usage
 <!-- Outline postman usage and outcome -->
+Rails routes included the following:
+<!-- insert photos of rails routes -->
 
 ## API Specs:
 ### Create

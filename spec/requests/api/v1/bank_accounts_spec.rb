@@ -53,7 +53,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
           }
         )
       end
-      
+
       # need to create the 500 message, coz currently what type of request would call a 500
       it 'internal_server_error: returns status code 500' do
         BankAccount.any_instance.stubs(:create).raises('some error')

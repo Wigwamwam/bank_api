@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-10-26T20:42:10+01:00">2022-10-26T20:42:10+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-10-27T15:37:15+01:00">2022-10-27T15:37:15+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  94.56%
+  95.27%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>147</b> relevant lines,
-    <span class="green"><b>139</b> lines covered</span> and
-    <span class="red"><b>8</b> lines missed. </span>
+    <b>148</b> relevant lines,
+    <span class="green"><b>141</b> lines covered</span> and
+    <span class="red"><b>7</b> lines missed. </span>
     (<span class="green">
-  94.56%
+  95.27%
 </span>
 )
   </div>
@@ -72,23 +72,23 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d38b8448cf8d6da0f872a3d6a76f0c480e9c14f0" class="src_link" title="app/controllers/api/v1/bank_accounts_controller.rb">app/controllers/api/v1/bank_accounts_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">96.00 %</td>
-            <td class="cell--number">50</td>
-            <td class="cell--number">25</td>
-            <td class="cell--number">24</td>
+            <td class="green strong cell--number t-file__coverage">96.30 %</td>
+            <td class="cell--number">53</td>
+            <td class="cell--number">27</td>
+            <td class="cell--number">26</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">2.16</td>
+            <td class="cell--number">2.07</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#56396bca684eec36f841a7386b65f33e6c1e55da" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">33.33 %</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">1</td>
+            <td class="red strong cell--number t-file__coverage">50.00 %</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">2</td>
-            <td class="cell--number">0.33</td>
+            <td class="cell--number">1</td>
+            <td class="cell--number">1</td>
+            <td class="cell--number">0.50</td>
             
           </tr>
         
@@ -214,7 +214,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#f4d32cc8cef4c40b45034f89023a387c885d76b1" class="src_link" title="spec/factories.rb">spec/factories.rb</a></td>
+            <td class="strong t-file__name"><a href="#583bc4c6a534764604e49d74871f42544200a457" class="src_link" title="spec/factories/bank_account.rb">spec/factories/bank_account.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">11</td>
             <td class="cell--number">6</td>
@@ -227,7 +227,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#4e10928581706b791d746a5e80c899a43d342717" class="src_link" title="spec/requests/api/v1/bank_accounts_spec.rb">spec/requests/api/v1/bank_accounts_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">91</td>
+            <td class="cell--number">89</td>
             <td class="cell--number">45</td>
             <td class="cell--number">45</td>
             <td class="cell--number">0</td>
@@ -312,7 +312,7 @@
     <h3>app/controllers/api/v1/bank_accounts_controller.rb</h3>
     <h4>
       <span class="green">
-  96.0%
+  96.3%
 </span>
 
       lines covered
@@ -321,8 +321,8 @@
     
 
     <div class="t-line-summary">
-      <b>25</b> relevant lines.
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>27</b> relevant lines.
+      <span class="green"><b>26</b> lines covered</span> and
       <span class="red"><b>1</b> lines missed.</span>
     </div>
 
@@ -334,13 +334,13 @@
     <ol>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="1">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="1">
+            
             
 
             
 
-            <code class="ruby">class Api::V1::BankAccountsController &lt; ApplicationController</code>
+            <code class="ruby"># frozen_string_literal: true</code>
           </li>
         </div>
       
@@ -351,7 +351,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"># </code>
           </li>
         </div>
       
@@ -362,18 +362,18 @@
 
             
 
-            <code class="ruby">  before_action :bank_account, only: [:destroy]</code>
+            <code class="ruby">module Api</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="4">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">  module V1</code>
           </li>
         </div>
       
@@ -384,45 +384,23 @@
 
             
 
-            <code class="ruby">  def index</code>
+            <code class="ruby">    class BankAccountsController &lt; ApplicationController</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="6">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    @bank_accounts = BankAccount.all</code>
+            <code class="ruby">      before_action :get_bank_account, only: [:destroy]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="7">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    render json: @bank_accounts</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="8">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="never" data-hits="" data-linenumber="7">
             
             
 
@@ -433,79 +411,101 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
+          <li class="covered" data-hits="1" data-linenumber="8">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def create</code>
+            <code class="ruby">      def index</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="11">
+          <li class="covered" data-hits="2" data-linenumber="9">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        @bank_accounts = BankAccount.all</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="10">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        render json: @bank_accounts</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      def create</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="14">
             <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">    @bank_account = BankAccount.create(bank_account_params)</code>
+            <code class="ruby">        @bank_account = BankAccount.create(bank_account_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="12">
+          <li class="covered" data-hits="6" data-linenumber="15">
             <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">    if @bank_account.save</code>
+            <code class="ruby">        if @bank_account.save</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="13">
+          <li class="covered" data-hits="3" data-linenumber="16">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">      render json: @bank_account, status: :created</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="15">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      render_error</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="16">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
+            <code class="ruby">          render json: @bank_account, status: :created</code>
           </li>
         </div>
       
@@ -516,40 +516,40 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="18">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="18">
+            <span class="hits">3</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">          render_bad_request</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="19">
+            
             
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="20">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="20">
+            
             
 
             
 
-            <code class="ruby">    @bank_account.destroy</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -560,7 +560,7 @@
 
             
 
-            <code class="ruby">    rescue =&gt; error</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -571,18 +571,18 @@
 
             
 
-            <code class="ruby">      render json: { errors: error }, status: :internal_server_error and return</code>
+            <code class="ruby">      def destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="23">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="23">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    head :no_content</code>
+            
+
+            <code class="ruby">        @bank_account.destroy</code>
           </li>
         </div>
       
@@ -593,29 +593,29 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      rescue StandardError =&gt; e</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="26">
+          <li class="covered" data-hits="1" data-linenumber="25">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">        render json: { errors: e }, status: :internal_server_error and return</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">        head :no_content</code>
           </li>
         </div>
       
@@ -626,29 +626,29 @@
 
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
+          <li class="covered" data-hits="1" data-linenumber="29">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def bank_account_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="6" data-linenumber="29">
-            <span class="hits">6</span>
-            
-
-            
-
-            <code class="ruby">    params.permit(:name, :iban, :currency)</code>
+            <code class="ruby">      private</code>
           </li>
         </div>
       
@@ -659,29 +659,29 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">      def bank_account_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="32">
+            <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">  # need to place this inside the lib, however this is not flexible for different errros, I need to create a error folder, where depending on the error it displaces different responses</code>
+            <code class="ruby">        params.permit(:name, :iban, :currency)</code>
           </li>
         </div>
       
@@ -692,40 +692,40 @@
 
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="34">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
+          <li class="covered" data-hits="1" data-linenumber="35">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def render_error</code>
+            <code class="ruby">      def render_bad_request</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="35">
+          <li class="covered" data-hits="3" data-linenumber="36">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    render json: { errors: error_message(@bank_account.errors.as_json) },</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
-            
-
-            <code class="ruby">      status: :bad_request</code>
+            <code class="ruby">        render json: { errors: error_message(@bank_account.errors.as_json) },</code>
           </li>
         </div>
       
@@ -736,7 +736,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">               status: :bad_request</code>
           </li>
         </div>
       
@@ -747,29 +747,29 @@
 
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
+          <li class="covered" data-hits="1" data-linenumber="40">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def error_message(errors)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="40">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    errors.map do |key, value|</code>
+            <code class="ruby">      def error_message(errors)</code>
           </li>
         </div>
       
@@ -780,18 +780,18 @@
 
             
 
-            <code class="ruby">      { &quot;field&quot; =&gt; key.to_s, &quot;error&quot; =&gt; value.first }</code>
+            <code class="ruby">        errors.map do |key, value|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="42">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">          { &#39;field&#39; =&gt; key.to_s, &#39;error&#39; =&gt; value.first }</code>
           </li>
         </div>
       
@@ -802,7 +802,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -813,56 +813,89 @@
 
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
+          <li class="covered" data-hits="1" data-linenumber="46">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def bank_account</code>
+            <code class="ruby">      def get_bank_account</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="46">
+          <li class="covered" data-hits="3" data-linenumber="47">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    @bank_account = BankAccount.find(params[:id])</code>
+            <code class="ruby">        @bank_account = BankAccount.find(params[:id])</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
             
 
-            <code class="ruby">    rescue ActiveRecord::RecordNotFound =&gt; error</code>
+            <code class="ruby">      rescue ActiveRecord::RecordNotFound =&gt; e</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
+          <li class="covered" data-hits="1" data-linenumber="49">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      render  json: { errors: error }, status: :not_found</code>
+            <code class="ruby">        render json: { errors: e }, status: :not_found</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
@@ -873,7 +906,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
+          <li class="never" data-hits="" data-linenumber="53">
             
             
 
@@ -893,7 +926,7 @@
     <h3>app/controllers/application_controller.rb</h3>
     <h4>
       <span class="red">
-  33.33%
+  50.0%
 </span>
 
       lines covered
@@ -902,9 +935,9 @@
     
 
     <div class="t-line-summary">
-      <b>3</b> relevant lines.
+      <b>2</b> relevant lines.
       <span class="green"><b>1</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
 
     
@@ -954,7 +987,7 @@
 
             
 
-            <code class="ruby">  rescue ActiveRecord::RecordNotFound =&gt; error</code>
+            <code class="ruby">rescue ActiveRecord::RecordNotFound =&gt; e</code>
           </li>
         </div>
       
@@ -965,56 +998,12 @@
 
             
 
-            <code class="ruby">    render  json: { errors: error }, status: :not_found</code>
+            <code class="ruby">  render json: { errors: e }, status: :not_found</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
-            
-
-            <code class="ruby">  rescue =&gt; error</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="7">
-            
-            
-
-            
-
-            <code class="ruby">    render json: { errors: error }, status: :internal_server_error</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="8">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
-            
-
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="10">
             
             
 
@@ -3438,9 +3427,9 @@
 </div>
 
       
-        <div class="source_table" id="f4d32cc8cef4c40b45034f89023a387c885d76b1">
+        <div class="source_table" id="583bc4c6a534764604e49d74871f42544200a457">
   <div class="header">
-    <h3>spec/factories.rb</h3>
+    <h3>spec/factories/bank_account.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -4074,7 +4063,7 @@
 
             
 
-            <code class="ruby">            params: { name: &#39;Test Bank Account&#39;, iban: &#39;RO66BACX00000012345678&#39;, currency: &#39;cccc&#39; }</code>
+            <code class="ruby">             params: { name: &#39;Test Bank Account&#39;, iban: &#39;RO66BACX00000012345678&#39;, currency: &#39;cccc&#39; }</code>
           </li>
         </div>
       
@@ -4228,7 +4217,7 @@
 
             
 
-            <code class="ruby">      # need to create the 500 message, coz currently what type of request would call a 500</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4239,7 +4228,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      # need to create the 500 message, coz currently what type of request would call a 500</code>
           </li>
         </div>
       
@@ -4316,7 +4305,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -4327,7 +4316,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4338,18 +4327,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # Destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="67">
+            
             
 
             
 
-            <code class="ruby">  describe &#39;DELETE /destroy&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4360,12 +4349,23 @@
 
             
 
+            <code class="ruby">  describe &#39;DELETE /destroy&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    context &#39;when request is valid&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="69">
+          <li class="covered" data-hits="2" data-linenumber="70">
             <span class="hits">2</span>
             
 
@@ -4376,7 +4376,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
+          <li class="covered" data-hits="1" data-linenumber="71">
             <span class="hits">1</span>
             
 
@@ -4387,7 +4387,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
@@ -4398,24 +4398,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="never" data-hits="" data-linenumber="73">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -4426,18 +4415,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="75">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="75">
+            
             
 
             
 
-            <code class="ruby">    context &#39;when request is invalid&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4448,7 +4437,7 @@
 
             
 
-            <code class="ruby">      it &#39;not_found: returns status code 404&#39; do</code>
+            <code class="ruby">    context &#39;when request is invalid&#39; do</code>
           </li>
         </div>
       
@@ -4459,7 +4448,7 @@
 
             
 
-            <code class="ruby">        delete &#39;/api/v1/bank_accounts/300&#39;</code>
+            <code class="ruby">      it &#39;not_found: returns status code 404&#39; do</code>
           </li>
         </div>
       
@@ -4470,18 +4459,18 @@
 
             
 
-            <code class="ruby">        expect(response).to have_http_status(:not_found)</code>
+            <code class="ruby">        delete &#39;/api/v1/bank_accounts/300&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="79">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">        expect(response).to have_http_status(:not_found)</code>
           </li>
         </div>
       
@@ -4492,18 +4481,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="81">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="81">
+            
             
 
             
 
-            <code class="ruby">      it &#39;internal_server_error: returns status code 500&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4514,7 +4503,7 @@
 
             
 
-            <code class="ruby">        BankAccount.any_instance.stubs(:destroy).raises(&#39;some error&#39;)</code>
+            <code class="ruby">      it &#39;internal_server_error: returns status code 500&#39; do</code>
           </li>
         </div>
       
@@ -4525,7 +4514,7 @@
 
             
 
-            <code class="ruby">        delete &quot;/api/v1/bank_accounts/#{bank_account.id}&quot;</code>
+            <code class="ruby">        BankAccount.any_instance.stubs(:destroy).raises(&#39;some error&#39;)</code>
           </li>
         </div>
       
@@ -4536,18 +4525,18 @@
 
             
 
-            <code class="ruby">        expect(response).to have_http_status(:internal_server_error)</code>
+            <code class="ruby">        delete &quot;/api/v1/bank_accounts/#{bank_account.id}&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="85">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">        expect(response).to have_http_status(:internal_server_error)</code>
           </li>
         </div>
       
@@ -4558,7 +4547,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -4569,7 +4558,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -4586,28 +4575,6 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="89">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="90">
-            
-            
-
-            
-
-            <code class="ruby">  # this is not working</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="91">
             
             
 
