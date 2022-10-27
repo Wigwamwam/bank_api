@@ -9,16 +9,41 @@ end
 RSpec.describe 'Api::V1::BankAccounts', type: :request do
   let!(:bank_account) { create(:bank_account) }
   describe 'GET / index' do
-    let!(:bank_accounts) { create_list(:bank_account, 4) }
-
-    before { get '/api/v1/bank_accounts' }
-
-    it 'returns bank accounts' do
-      expect(json).not_to be_empty
-      expect(json.size).to eq(5)
+    context 'with 0 bank_accounts' do
     end
 
-    it { expect(response).to have_http_status(200) }
+    context 'with 1 bank_accounts' do
+    end
+
+    context 'with 5 bank_accounts' do
+      let!(:bank_accounts) { create_list(:bank_account, 4) }
+
+      before { get '/api/v1/bank_accounts' }
+
+      it 'returns bank accounts' do
+        expect(json).not_to be_empty
+        expect(json.size).to eq(5)
+      end
+
+      it { expect(response).to have_http_status(200) }
+    end
+
+    context 'with unexpected error' do
+      it 'returns 500 error' do
+      # To Do:  research 500 error handling, in dev vs test mode
+      # 1) Api::V1::BankAccounts GET / index with unexpected error returns 500 error
+      #  Failure/Error: @bank_accounts = BankAccount.all
+      #   RuntimeError:
+      #    some error
+      #  ./app/controllers/api/v1/bank_accounts_controller.rb:9:in `index'
+      #  ./spec/requests/api/v1/bank_accounts_spec.rb:34:in `block (4 levels) in <top (required)>
+
+        BankAccount.stubs(:all).raises('some error')
+        get '/api/v1/bank_accounts'
+        expect(response).to have_http_status(:internal_server_error)
+      end
+    end
+
   end
 
   describe 'POST / create' do
@@ -56,7 +81,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
 
       # need to create the 500 message, coz currently what type of request would call a 500
       it 'internal_server_error: returns status code 500' do
-        BankAccount.any_instance.stubs(:create).raises('some error')
+        BankAccount.stubs(:new).raises('some error')
         post '/api/v1/bank_accounts', params: valid_attributes
         expect(response).to have_http_status(:internal_server_error)
       end
@@ -80,7 +105,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
       end
 
       it 'internal_server_error: returns status code 500' do
-        BankAccount.any_instance.stubs(:destroy).raises('some error')
+        BankAccount.stubs(:find).raises('some error')
         delete "/api/v1/bank_accounts/#{bank_account.id}"
         expect(response).to have_http_status(:internal_server_error)
       end

@@ -1,12 +1,15 @@
 # frozen_string_literal: true
-# 
+#
 module Api
   module V1
     class BankAccountsController < ApplicationController
       before_action :get_bank_account, only: [:destroy]
 
+      rescue_from StandardError, :with => :internal_server_error
+
       def index
         @bank_accounts = BankAccount.all
+        raise StandardError.new
         render json: @bank_accounts
       end
 
@@ -21,8 +24,6 @@ module Api
 
       def destroy
         @bank_account.destroy
-      rescue StandardError => e
-        render json: { errors: e }, status: :internal_server_error and return
         head :no_content
       end
 
@@ -48,6 +49,11 @@ module Api
       rescue ActiveRecord::RecordNotFound => e
         render json: { errors: e }, status: :not_found
       end
+
+      def internal_server_error
+        render json: { errors: "" }, status: :internal_server_error
+      end
+
     end
   end
 end
