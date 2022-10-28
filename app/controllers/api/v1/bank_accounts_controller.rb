@@ -9,7 +9,6 @@ module Api
 
       def index
         @bank_accounts = BankAccount.all
-        raise StandardError.new
         render json: @bank_accounts
       end
 
