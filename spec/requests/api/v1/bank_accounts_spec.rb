@@ -51,7 +51,6 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
         expect(response).to have_http_status(:internal_server_error)
       end
     end
-
   end
 
   describe 'POST / create' do
@@ -72,7 +71,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     context 'when request is invalid' do
       before do
         post '/api/v1/bank_accounts',
-            params: { name: 'Test Bank Account', iban: 'RO66BACX00000012345678', currency: 'cccc' }
+             params: { name: 'Test Bank Account', iban: 'RO66BACX00000012345678', currency: 'cccc' }
       end
 
       it 'bad_request: returns status code 400' do
@@ -103,9 +102,6 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
           expect(response).to have_http_status(:internal_server_error)
         end
       end
-
-
-
     end
   end
 

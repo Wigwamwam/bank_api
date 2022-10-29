@@ -14,12 +14,4 @@ RSpec.describe BankAccountSerializer, type: :serializer do
     expect(json[:iban]).to eq(bank_account.iban)
     expect(json[:currency]).to eq(bank_account.currency)
   end
-
-  # it 'returns correct keys and values' do
-  #   expect(subject).to include (
-  #     name: be_a(String);
-  #     iban: be_a(String);
-  #     currency: be_a(String)
-  #   )
-  # end
 end
