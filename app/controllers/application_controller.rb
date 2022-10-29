@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  rescue_from StandardError, with: :internal_server_error
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from StandardError, :with => :internal_server_error
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+
 
   def internal_server_error
-    render json: { errors: '' }, status: :internal_server_error
+    head :internal_server_error
   end
 
   def not_found(e)
-    render json: { errors: e }, status: :not_found
+    head :not_found
   end
 
   def render_bad_request
