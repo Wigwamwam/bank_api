@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Api::V1::BankAccounts', type: :request do
+RSpec.describe 'V1::BankAccounts', type: :request do
   let(:bank_account) { create(:bank_account) }
 
   describe 'GET / index' do
-    let(:get_bank_accounts) { get '/api/v1/bank_accounts' }
+    let(:get_bank_accounts) { get '/v1/bank_accounts' }
 
     context 'with 0 bank_accounts' do
       before { get_bank_accounts }
@@ -22,7 +22,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     context 'with 1 bank_accounts' do
       let!(:bank_account) { create(:bank_account) }
 
-      before { get '/api/v1/bank_accounts' }
+      before { get_bank_accounts }
 
       it 'returns 1 bank account' do
         expect(parsed_response).not_to be_empty
@@ -35,7 +35,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     context 'with 3 bank_accounts' do
       let!(:bank_accounts) { create_list(:bank_account, 3) }
 
-      before { get '/api/v1/bank_accounts' }
+      before { get_bank_accounts }
 
       it 'returns 3 bank accounts' do
         expect(parsed_response).not_to be_empty
@@ -47,11 +47,8 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
 
     context 'with unexpected error' do
       it 'returns 500 error' do
-        # rspec stub request - no mocka
-        # allow(BankAccount).to receive(:all).and_raise('some error')
-
-        BankAccount.stubs(:all).raises('some error')
-        get '/api/v1/bank_accounts'
+        allow(BankAccount).to receive(:all).and_raise('some error')
+        get '/v1/bank_accounts'
         expect(response).to have_http_status(:internal_server_error)
       end
     end
@@ -61,7 +58,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
     let(:valid_attributes) { { name: 'Test Bank Account', iban: 'RO66BACX0000001234567890', currency: 'USD' } }
 
     context 'with valid request' do
-      before { post '/api/v1/bank_accounts', params: valid_attributes }
+      before { post '/v1/bank_accounts', params: valid_attributes }
 
       it 'creates a bank account' do
         expect(parsed_response['name']).to eq('Test Bank Account')
@@ -74,7 +71,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
 
     context 'when request is invalid' do
       before do
-        post '/api/v1/bank_accounts',
+        post '/v1/bank_accounts',
              params: { name: 'Test Bank Account', iban: 'RO66BACX00000012345678', currency: 'cccc' }
       end
 
@@ -90,19 +87,18 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
         )
       end
 
-      # need to create the 500 message, coz currently what type of request would call a 500
       context 'with invalid create method' do
         it 'returns internal_server_error: returns status code 500' do
-          BankAccount.stubs(:create).raises('some error')
-          post '/api/v1/bank_accounts', params: valid_attributes
+          allow(BankAccount).to receive(:create).and_raise('some error')
+          post '/v1/bank_accounts', params: valid_attributes
           expect(response).to have_http_status(:internal_server_error)
         end
       end
 
       context 'with invalid save method' do
         it 'returns internal_server_error: returns status code 500' do
-          BankAccount.any_instance.stubs(:save).raises('some error')
-          post '/api/v1/bank_accounts', params: valid_attributes
+          allow_any_instance_of(BankAccount).to receive(:save).and_raise('some error')
+          post '/v1/bank_accounts', params: valid_attributes
           expect(response).to have_http_status(:internal_server_error)
         end
       end
@@ -113,7 +109,7 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
 
   describe 'DELETE /destroy' do
     context 'when request is valid' do
-      before { delete "/api/v1/bank_accounts/#{bank_account.id}" }
+      before { delete "/v1/bank_accounts/#{bank_account.id}" }
 
       it 'returns status code 204' do
         expect(response).to have_http_status(:no_content)
@@ -122,13 +118,13 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
 
     context 'when request is invalid' do
       it 'not_found: returns status code 404' do
-        delete '/api/v1/bank_accounts/300'
+        delete '/v1/bank_accounts/300'
         expect(response).to have_http_status(:not_found)
       end
 
       it 'internal_server_error: returns status code 500' do
-        BankAccount.stubs(:find).raises('some error')
-        delete "/api/v1/bank_accounts/#{bank_account.id}"
+        allow(BankAccount).to receive(:find).and_raise('some error')
+        delete "/v1/bank_accounts/#{bank_account.id}"
         expect(response).to have_http_status(:internal_server_error)
       end
     end
