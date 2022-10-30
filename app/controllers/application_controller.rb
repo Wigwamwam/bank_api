@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
     head :internal_server_error
   end
 
-  def not_found(_e)
+  def not_found
     head :not_found
   end
 

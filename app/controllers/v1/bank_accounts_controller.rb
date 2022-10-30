@@ -2,7 +2,7 @@
 
 module V1
   class BankAccountsController < ApplicationController
-    before_action :get_bank_account, only: [:destroy]
+    before_action :finds_bank_account, only: [:destroy]
 
     def index
       @bank_accounts = BankAccount.all
@@ -30,7 +30,7 @@ module V1
       params.permit(:name, :iban, :currency)
     end
 
-    def get_bank_account
+    def finds_bank_account
       @bank_account = BankAccount.find(params[:id])
     end
   end

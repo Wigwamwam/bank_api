@@ -14,3 +14,24 @@ Style/Documentation:
 RSpec/MultipleExpectations:
   Exclude:
     - 'spec/requests/**/*.rb'
+
+RSpec/NestedGroups:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+Rails/FilePath:
+  Exclude:
+    - spec/rails_helper.rb
+
+RSpec/LetSetup:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/serializers/*.rb'
+    - 'spec/requests/**/*.rb'
