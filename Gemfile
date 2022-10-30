@@ -32,7 +32,6 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
-  # gem 'mocha'
   gem 'rspec'
   gem 'rspec-rails'
 end
@@ -40,6 +39,7 @@ end
 group :test do
   gem 'database_cleaner-active_record'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
 end
 
 # Use Redis adapter to run Action Cable in production
