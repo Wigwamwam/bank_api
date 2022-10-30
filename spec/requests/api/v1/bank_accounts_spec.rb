@@ -1,51 +1,55 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-# need to remove this.
-def json
-  JSON.parse(response.body)
-end
 
 RSpec.describe 'Api::V1::BankAccounts', type: :request do
   let(:bank_account) { create(:bank_account) }
+
   describe 'GET / index' do
+    let(:get_bank_accounts) { get '/api/v1/bank_accounts' }
+
     context 'with 0 bank_accounts' do
-      before { get '/api/v1/bank_accounts' }
+      before { get_bank_accounts }
 
       it 'returns 0 bank account' do
-        expect(json).to be_empty
-        expect(json.size).to eq(0)
+        expect(parsed_response).to be_empty
+        expect(parsed_response.size).to eq(0)
       end
 
-      it { expect(response).to have_http_status(200) }
+      it { expect(response).to have_http_status(:ok) }
     end
 
     context 'with 1 bank_accounts' do
       let!(:bank_account) { create(:bank_account) }
+
       before { get '/api/v1/bank_accounts' }
 
       it 'returns 1 bank account' do
-        expect(json).not_to be_empty
-        expect(json.size).to eq(1)
+        expect(parsed_response).not_to be_empty
+        expect(parsed_response.size).to eq(1)
       end
 
-      it { expect(response).to have_http_status(200) }
+      it { expect(response).to have_http_status(:ok) }
     end
 
     context 'with 3 bank_accounts' do
       let!(:bank_accounts) { create_list(:bank_account, 3) }
+
       before { get '/api/v1/bank_accounts' }
 
-      it 'returns 5 bank accounts' do
-        expect(json).not_to be_empty
-        expect(json.size).to eq(3)
+      it 'returns 3 bank accounts' do
+        expect(parsed_response).not_to be_empty
+        expect(parsed_response.size).to eq(3)
       end
 
-      it { expect(response).to have_http_status(200) }
+      it { expect(response).to have_http_status(:ok) }
     end
 
     context 'with unexpected error' do
       it 'returns 500 error' do
+        # rspec stub request - no mocka
+        # allow(BankAccount).to receive(:all).and_raise('some error')
+
         BankAccount.stubs(:all).raises('some error')
         get '/api/v1/bank_accounts'
         expect(response).to have_http_status(:internal_server_error)
@@ -60,12 +64,12 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
       before { post '/api/v1/bank_accounts', params: valid_attributes }
 
       it 'creates a bank account' do
-        expect(json['name']).to eq('Test Bank Account')
-        expect(json['iban']).to eq('RO66BACX0000001234567890')
-        expect(json['currency']).to eq('USD')
+        expect(parsed_response['name']).to eq('Test Bank Account')
+        expect(parsed_response['iban']).to eq('RO66BACX0000001234567890')
+        expect(parsed_response['currency']).to eq('USD')
       end
 
-      it { expect(response).to have_http_status(201) }
+      it { expect(response).to have_http_status(:created) }
     end
 
     context 'when request is invalid' do
@@ -79,9 +83,9 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
       end
 
       it 'bad_request: returns json format error message' do
-        expect(json).to eq(
+        expect(parsed_response).to eq(
           {
-            'errors' => [{ 'error' => 'is not included in the list', 'field' => 'currency' }]
+            'errors' => [{ 'field' => 'currency', 'error' => 'is not included in the list' }]
           }
         )
       end
@@ -110,8 +114,9 @@ RSpec.describe 'Api::V1::BankAccounts', type: :request do
   describe 'DELETE /destroy' do
     context 'when request is valid' do
       before { delete "/api/v1/bank_accounts/#{bank_account.id}" }
+
       it 'returns status code 204' do
-        expect(response).to have_http_status(204)
+        expect(response).to have_http_status(:no_content)
       end
     end
 

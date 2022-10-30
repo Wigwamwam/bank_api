@@ -17,7 +17,7 @@ gem 'puma', '~> 5.0'
 gem 'rubocop', require: false
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
+# gem 'jbuilder'
 
 gem 'rubocop-rails', require: false
 
@@ -34,7 +34,8 @@ group :development, :test do
   gem 'faker'
   gem 'mocha'
   gem 'rspec-rails'
-  gem 'webmock'
+  gem 'rspec'
+
 end
 
 group :test do
@@ -63,8 +64,3 @@ gem 'bootsnap', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
-
-group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
-end

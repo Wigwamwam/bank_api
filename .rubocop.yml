@@ -7,3 +7,10 @@ AllCops:
     - bin/bundle
     - application.rb
   SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/requests/**/*.rb'

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe BankAccountSerializer, type: :serializer do
   let(:bank_account) { create(:bank_account) }

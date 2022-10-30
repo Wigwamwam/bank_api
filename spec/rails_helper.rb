@@ -7,7 +7,7 @@ require 'spec_helper'
 require_relative 'support/factory_bot'
 require_relative 'support/api_helper'
 require_relative 'support/database_cleaner_spec'
-require_relative 'support/serializer_spec_helper'
+# require_relative 'support/serializer_spec_helper'
 # require 'mocha/setup'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -47,9 +47,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
-  config.include SerializerSpecHelper, type: :serializer
+  # config.include SerializerSpecHelper, type: :serializer
 
-  config.include ApiHelper, type: :api
+  config.include ApiHelper, type: :request
 
   config.include FactoryBot::Syntax::Methods
   # You can uncomment this line to turn off ActiveRecord support entirely.

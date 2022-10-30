@@ -20,7 +20,8 @@ module Api
       end
 
       def destroy
-        @bank_account.destroy
+        # exclamation mark to ensure that error rises when it fails
+        @bank_account.destroy!
         head :no_content
       end
 
