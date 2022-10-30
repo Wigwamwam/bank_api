@@ -40,7 +40,6 @@ end
 group :test do
   gem 'database_cleaner-active_record'
   gem 'shoulda-matchers', '~> 5.0'
-  gem 'simplecov', require: false
 end
 
 # Use Redis adapter to run Action Cable in production
