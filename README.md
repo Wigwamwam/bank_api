@@ -40,7 +40,7 @@ The repo followed a TDD / BDD approach. Rspec was used for running unit tests. R
 or
 `rspec`
 <!-- insert pic of tests passing -->
-![Rspec Simple Cov](lib/read_me_photos/Rspec_tests_simplecov.png)
+![Rspec Simple Cov](lib/read_me_photos/rspec.png)
 
 
 We used the `gem simplecov` in order to ensure test coverage was 100%. To run simplecov, conduct the following after running rspec:
