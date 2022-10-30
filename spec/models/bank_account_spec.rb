@@ -21,9 +21,11 @@ RSpec.describe BankAccount, type: :model do
       it { should validate_inclusion_of(:currency).in_array(%w[GBP EUR USD]) }
     end
 
-    context 'Fail with blank inputs' do
+    context 'Fail with nil inputs' do
       let(:bank_account) { build(:bank_account, name: nil, iban: nil, currency: nil) }
-      it { expect(bank_account).not_to be_valid }
+      it { should_not allow_value(nil).for(:name) }
+      it { should_not allow_value(nil).for(:iban) }
+      it { should_not allow_value(nil).for(:currency) }
     end
   end
 end
