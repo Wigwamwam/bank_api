@@ -1,13 +1,13 @@
 ## Description
 
-The follow repo was built to enhance my skills in TDD and building APIs. It contains one model, bank_account. The bank account model has the following attributes:
+This repo was built to enhance my TDD / BDD and APIs knowledge. It contains one model, bank_account. The bank account model has the following attributes:
 
 * id: unique id of the bank account (no requirements on type or length)
 * name: name of the bank account (free text, up to 100 characters)
 * iban: accounts iban (up to 34 characters, only letters and numbers)
 * currency: accounts' currency (the only supported currencies are GBP, EUR and USD)
 
-The aim of the excerise was to generate API end-points that enables the end user to create, index and delete bank accounts. Learnings included:
+The excerise aimed to enable an end user to call the api with the post / get / destroy methods. Learnings included:
 
 1. TDD /BDD for APIs
 2. API serialisation
@@ -23,7 +23,7 @@ This repo currently works with:
 * Bundler 2.2.32
 * Database: PostgreSQL (*)
 
-(*) Rationale: When scaling, Postgres offers a wider variety of data types compared with MySQL. PostgresSQL has less limitations in the eventiality of building out a bank system. Compared with MySQL, Postgres, can handle unique data types, unstructured data, complex queries and frequent write operations making it a good choice for enterprise level scope.
+(*) Rationale: When scaling, Postgres offers a wider variety of data types than MySQL. PostgresSQL has less limitations in the eventuality of building out a bank system. Compared with MySQL, Postgres can handle unique data types, unstructured data, complex queries and frequent write operations, making it a good choice for enterprise level scope.
 
 ## Set-Up
 
@@ -34,7 +34,7 @@ This repo currently works with:
 
 ## Testing
 
-The repo followed a TDD / BDD approach. Rspec was used for running unit tests. Rspec was chosen over minitest becauses it focuses on readable specifications describing how the application is supposed to behave with a close match to English. To run the tests, ensure you have followed the instructions in 'Set-Up', then run the following:
+The repo followed a TDD / BDD approach. Rspec was used for running unit tests. Rspec was chosen over minitest because it focuses on readable specifications describing how the application is supposed to behave with a close match to English. To run the tests, ensure you have followed the instructions in 'Set-Up', then run the following:
 
 `bundle exec rspec`
 or
@@ -48,7 +48,7 @@ We used the `gem simplecov` in order to ensure test coverage was 100%. To run si
 
 ## API Specs:
 
-The following outlines the API spec for the create, index and destroy method. Please see 'Postman Response' section for examples of calling the api and the responses.
+The following outlines the API spec for get / post / destroy methods. Please see 'Postman Response' section for examples of calling the api and the responses.
 
 ### Create
 
@@ -150,7 +150,19 @@ __Response__:
 
 * Unexpected error: status code `500`, no payload
 
+## Improvements
+
+Here are several aspects to like to learn more about and add to this repo:
+
+* Added authentication with devise
+* Set up continuous intergration on Github
+* Deployed onto AWS
+* Added a type of monitoring with Datadog
+
+
 ## Postman Responses
+
+Examples:
 
 ### Post - 201
 
@@ -167,12 +179,3 @@ __Response__:
 ### Destroy - 204
 
 ![Rspec Simple Cov](lib/read_me_photos/delete.png)
-
-
-## Improvements
-
-Here are several areas where I would expand on and improve:
-* Added authentication with devise
-* Set up continous intergration with Github
-* Deployed onto AWS
-* Added a type of monitoring with potentially Datadog
