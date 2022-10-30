@@ -169,46 +169,10 @@ __Response__:
 ![Rspec Simple Cov](lib/read_me_photos/delete.png)
 
 
-# Additional Gems
-
-* Core
-    * [active_type][] – for building simple and effective form/service objects
-    * [sidekiq][] – Redis-based job queue implementation for Active Job
-* Configuration
-    * [dotenv][] – for local configuration
-* Style
-    * [Pico.css][pico] - a great-looking default stylesheet
-* Utilities
-    * [annotate][] – auto-generates schema documentation
-    * [amazing_print][] – try `ap` instead of `puts`
-    * [good_migrations][] - prevents app models from being improperly referenced in migrations
-    * [rubocop][] – enforces Ruby code style
-    * [erblint][] – applies rubocop rules within html.erb files
-    * [syntax_suggest][] – easier troubleshooting of Ruby syntax errors
-* Security
-    * [brakeman][] and [bundler-audit][] – detect security vulnerabilities
-* Testing
-    * [capybara-lockstep][] – for more reliable browser testing
-    * [shoulda][] – shortcuts for common ActiveRecord tests
-
-
-
-
-#### Other tweaks that patch over some Rails shortcomings
-
-## How does it work?
-
-
 ## Improvements
 
-
-## Out of scope
-
-There are a few things that are out of scope for this exercise but the technologies I would have used to conduct the followering were:
-<!-- implement rationale -->
-
-* Authentication
-* Any type of monitoring
-* Database migrations
-* Continuous Integration (CI) / Continuous Delivery (CD)
-* Deployment or hosting
+Here are several areas where I would expand on and improve:
+* Added authentication with devise
+* Set up continous intergration with Github
+* Deployed onto AWS
+* Added a type of monitoring with potentially Datadog
