@@ -1,18 +1,18 @@
 ## Description
 
-The follow repo was built to test my TDD and API skills. It contains one model, bank_account. A bank account object has the following attributes:
+The follow repo was built to enhance my skills in TDD and building APIs. It contains one model, bank_account. The bank account model has the following attributes:
 
 * id: unique id of the bank account (no requirements on type or length)
 * name: name of the bank account (free text, up to 100 characters)
 * iban: accounts iban (up to 34 characters, only letters and numbers)
 * currency: accounts' currency (the only supported currencies are GBP, EUR and USD)
 
-The aim of the excerise was to generate Rest API end points that enables users to create, index and delete bank accounts. Learnings included:
+The aim of the excerise was to generate API end-points that enables the end user to create, index and delete bank accounts. Learnings included:
 
-1. Adopt a TDD approach to developing Rest-APIs
-2. Serialize API endpoints
-3. Test APIs with Postman
-4. Handle edge case errors
+1. TDD /BDD for APIs
+2. API serialisation
+3. Edge case errors and tests
+4. Postman
 
 ## Requirements
 
@@ -21,7 +21,9 @@ This repo currently works with:
 * Rails 7.0.4
 * Ruby 3.1.2
 * Bundler 2.2.32
-* Database: PostgreSQL - In the possibility of scaling, Postgres offers a wider variety of data types compared with MySQL. PostgresSQL has less limitations in the eventiality of building out a bank system. Compared with MySQL, Postgres, can handle unique data types, unstructured data, complex queries and frequent write operations making it a good choice for enterprise level scope.
+* Database: PostgreSQL (*)
+
+(*) Rationale: When scaling, Postgres offers a wider variety of data types compared with MySQL. PostgresSQL has less limitations in the eventiality of building out a bank system. Compared with MySQL, Postgres, can handle unique data types, unstructured data, complex queries and frequent write operations making it a good choice for enterprise level scope.
 
 ## Set-Up
 
@@ -31,15 +33,17 @@ This repo currently works with:
 - Run `rails db:seed` in your terminal to seed the database with 10 instances of bank_account.
 
 ## Testing
-<!-- Outline justfication for Rspec -->
-The repo followed a TDD approach. For testing we used Rspec. Rspec was chosen over minitest becauses it focuses on readable specifications describing how the application is supposed to behave with a close match to English. To run the tests:
+
+The repo followed a TDD / BDD approach. Rspec was used for running unit tests. Rspec was chosen over minitest becauses it focuses on readable specifications describing how the application is supposed to behave with a close match to English. To run the tests, ensure you have followed the instructions in 'Set-Up', then run the following:
 
 `bundle exec rspec`
 or
 `rspec`
 <!-- insert pic of tests passing -->
+![Rspec Simple Cov](lib/read_me_photos/Rspec_tests_simplecov.png)
 
-We used the `gem simplecov` in order to ensure test coverage was >98%. To run simplecov, conduct the following after running rspec:
+
+We used the `gem simplecov` in order to ensure test coverage was 100%. To run simplecov, conduct the following after running rspec:
 `open coverage/index.html`
 
 <!-- insert test coverage picture -->
