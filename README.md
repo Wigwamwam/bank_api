@@ -1,6 +1,6 @@
 ## Description
 
-This Rails repo was built to enhance my TDD / BDD and APIs knowledge. It contains one model, bank_account. The bank account model has the following attributes:
+This Rails' repo was built to enhance my TDD / BDD and API knowledge. It contains one model: bank_account. The bank account model has the following attributes:
 
 * id: unique id of the bank account (no requirements on type or length)
 * name: name of the bank account (free text, up to 100 characters)
@@ -49,7 +49,7 @@ The repo followed a TDD / BDD approach. Rspec was used for running unit tests. R
 `bundle exec rspec`
 or
 `rspec`
-<!-- insert pic of tests passing -->
+
 ![Rspec Simple Cov](lib/read_me_photos/rspec_new.png)
 
 
