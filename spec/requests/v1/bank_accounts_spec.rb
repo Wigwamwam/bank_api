@@ -45,8 +45,8 @@ RSpec.describe 'V1::BankAccounts', type: :request do
       it { expect(response).to have_http_status(:ok) }
     end
 
-    context 'with unexpected error' do
-      it 'returns 500 error' do
+    context 'with invalid all method' do
+      it 'returns internal_server_error: returns status code 500' do
         allow(BankAccount).to receive(:all).and_raise('some error')
         get '/v1/bank_accounts'
         expect(response).to have_http_status(:internal_server_error)

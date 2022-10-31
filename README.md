@@ -1,6 +1,6 @@
 ## Description
 
-This repo was built to enhance my TDD / BDD and APIs knowledge. It contains one model, bank_account. The bank account model has the following attributes:
+This Rails repo was built to enhance my TDD / BDD and APIs knowledge. It contains one model, bank_account. The bank account model has the following attributes:
 
 * id: unique id of the bank account (no requirements on type or length)
 * name: name of the bank account (free text, up to 100 characters)
@@ -45,6 +45,18 @@ or
 
 We used the `gem simplecov` in order to ensure test coverage was 100%. To run simplecov, conduct the following after running rspec:
 `open coverage/index.html`
+
+## Run Service on Local Development
+
+To run the service on local development, ensure you have followed 'Set-Up' and 'Testing' sections. To start local development run `rails s` in the terminal.
+To call the API service, go to Postman [https://www.postman.com/] and sign up. Then, follow these instructions [https://learning.postman.com/docs/getting-started/sending-the-first-request/] with the following route paths to access the service:
+
+```
+GET         http://localhost:3000/v1/bank_accounts
+POST        http://localhost:3000/v1/bank_accounts
+DELETE      http://localhost:3000/v1/bank_accounts/:id
+```
+(n.b) - check what number your local host is listening on i.e (3000)
 
 ## API Specs:
 
