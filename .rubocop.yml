@@ -35,3 +35,7 @@ RSpec/MultipleExpectations:
   Exclude:
     - 'spec/serializers/*.rb'
     - 'spec/requests/**/*.rb'
+
+RSpec/ContextWording:
+  Exclude:
+  - 'spec/models/bank_account_spec.rb'
