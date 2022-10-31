@@ -14,6 +14,16 @@ The excerise aimed to enable an end user to call the api with the post / get / d
 3. Edge case errors and tests
 4. Postman
 
+## Navigation
+
+* [Requirements](#requirements)
+* [Set-Up](#set-up)
+* [Testing](#testing)
+* [Run Service on Local Development](#run-service-on-local-development)
+* [API Specs](#api-specs)
+* [Improvements](#improvements)
+* [Postman Responses](#postman-responses)
+
 ## Requirements
 
 This repo currently works with:
